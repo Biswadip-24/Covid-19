@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Covid-19</string>
+    <string name="world">WORLD</string>
+    <string name="Total">TOTAL: </string>
+    <string name="Title">COVID-19</string>
+    <string name="deaths">DEATHS: </string>
+    <string name="new_cases">NEW CASES: </string>
+    <string name="new_deaths">NEW DEATHS: </string>
+    <string name="recovered">RECOVERED: </string>
+    <string name="search">Search Country </string>
+    <string name="india">INDIA</string>
+    <string name="total_test">TOTAL TESTS: </string>
+    <string name="safe">#STAY HOME, STAY SAFE</string>
+</resources>

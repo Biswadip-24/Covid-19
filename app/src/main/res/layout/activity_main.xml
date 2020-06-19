@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/corona"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="serif-monospace"
+                android:text="@string/Title"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/World_Card"
+                android:layout_width="match_parent"
+                android:layout_height="165dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:id="@+id/world_deaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="190dp"
+                    android:layout_marginTop="85dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/deaths"
+                    android:textColor="#DD1414"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/world_new_deaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="190dp"
+                    android:layout_marginTop="120dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/new_deaths"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/World"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/raleway_extrabold"
+                    android:text="@string/world"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/world_recovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="85dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/recovered"
+                    android:textColor="#00AF0D"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/world_new_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="120dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/new_cases"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/world_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/Total"
+                    android:textSize="18sp" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="191dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="50dp"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:id="@+id/world_deaths2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="190dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/deaths"
+                    android:textColor="#DD1414"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/world_new_deaths2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="190dp"
+                    android:layout_marginTop="100dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/new_deaths"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/India"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/raleway_extrabold"
+                    android:text="@string/india"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/world_recovered2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/recovered"
+                    android:textColor="#00AF0D"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/world_new_cases2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="100dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/new_cases"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/world_new_cases3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="135dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/total_test"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/world_total2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/Total"
+                    android:textSize="18sp" />
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="30dp"
+                android:fontFamily="@font/raleway"
+                android:text="@string/safe"
+                android:textAlignment="center"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

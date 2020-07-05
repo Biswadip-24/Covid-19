@@ -4,5 +4,6 @@
         <item>@font/raleway</item>
         <item>@font/raleway_extrabold</item>
         <item>@font/raleway_medium</item>
+        <item>@font/roboto</item>
     </array>
 </resources>

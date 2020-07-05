@@ -64,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
         try
 
         {
-            letsDOSomeMoreNetworking();
-            letsDoSomeNetworking();
+            //letsDOSomeMoreNetworking();
+            //letsDoSomeNetworking();
 
         }
         catch(Exception e)
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         );
         requestQueue.add(arrayRequest);*/
 
-
+        /*
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("yesterday",yesterday);
 

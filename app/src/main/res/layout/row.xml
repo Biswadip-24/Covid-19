@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="78dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
+    app:cardCornerRadius="0dp">
+
+    <View
+        android:id="@+id/ViewRecycle"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="77dp"
+        android:background="@color/black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:clickable="false">
+
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="95dp"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="6dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="Maharsthra"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/decease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="false"
+            android:layout_alignTop="@+id/state"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/roboto"
+            android:text="8376"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/recover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/state"
+            android:layout_marginEnd="100dp"
+            android:layout_toEndOf="@+id/confirm"
+            android:fontFamily="@font/roboto"
+            android:text="104687"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/green"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/state"
+            android:layout_marginStart="121dp"
+            android:fontFamily="@font/roboto"
+            android:text="192990"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/red"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ddecease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/decease"
+            android:layout_below="@+id/state"
+            android:layout_marginTop="-42dp"
+            android:fontFamily="@font/roboto"
+            android:text="+198"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/drecover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/recover"
+            android:layout_below="@+id/state"
+            android:layout_marginTop="-42dp"
+            android:fontFamily="@font/roboto"
+            android:text="+3515"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/green"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/dconfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/confirm"
+            android:layout_below="@+id/state"
+            android:layout_marginTop="-42dp"
+            android:fontFamily="@font/roboto"
+            android:text="+6364"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/red"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

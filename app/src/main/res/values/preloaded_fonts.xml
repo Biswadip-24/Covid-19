@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/abeezee</item>
+        <item>@font/baloo_thambi</item>
+        <item>@font/chela_one</item>
+        <item>@font/iceland</item>
+        <item>@font/limelight</item>
+        <item>@font/nunito_sans_extralight</item>
         <item>@font/raleway</item>
         <item>@font/raleway_extrabold</item>
         <item>@font/raleway_medium</item>
+        <item>@font/righteous</item>
         <item>@font/roboto</item>
+        <item>@font/russo_one</item>
     </array>
 </resources>

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">COVID-19</string>
-    <string name="world">WORLD</string>
     <string name="Total">TOTAL: </string>
     <string name="Title">COVID-19</string>
     <string name="deaths">DEATHS: </string>
@@ -21,4 +20,7 @@
     <string name="Deceased">Deceased</string>
     <string name="All">All States/UTs :</string>
     <string name="location">Location</string>
+    <string name="world">Across World</string>
+    <string name="note">NOTE : World Stats may take longer to update</string>
+    <string name="all_World">All Countries :</string>
 </resources>

@@ -1,24 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="274dp"
-        android:layout_marginEnd="151dp"
-        android:layout_marginStart="151dp"
-        android:layout_marginTop="274dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/Coming_Soon"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/corona_back2">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="200dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/textView5"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/location"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/textView18"
+                android:layout_marginStart="9dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/Confirmed"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/textView18"
+                android:layout_marginStart="7dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/recovered"
+                android:textColor="@color/green"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/dec"
+                android:layout_alignTop="@+id/textView19"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/Deceased"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/rounded"
+            android:elevation="7dp" />
+
+        <TextView
+            android:id="@+id/confirm2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/con2"
+            android:layout_alignTop="@+id/decease2"
+            android:elevation="7dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/Confirmed"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/recover2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:elevation="7dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/recovered"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/con2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/rec2"
+            android:layout_marginStart="51dp"
+            android:elevation="7dp"
+            android:fontFamily="@font/roboto"
+            android:text="00000"
+            android:textColor="@color/red"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/drec2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rec2"
+            android:layout_centerHorizontal="true"
+            android:elevation="7dp"
+            android:fontFamily="@font/roboto"
+            android:text="+0"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/ddec2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/dec2"
+            android:layout_below="@+id/rec2"
+            android:elevation="7dp"
+            android:fontFamily="@font/roboto"
+            android:text="+0"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/raleway"
+            android:text="@string/note"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/dcon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/confirm2"
+            android:layout_below="@+id/rec2"
+            android:elevation="7dp"
+            android:fontFamily="@font/roboto"
+            android:text="+0"
+            android:textAlignment="viewStart"
+            android:textColor="@color/red"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/view3"
+            android:layout_marginTop="175dp"
+            android:fontFamily="@font/raleway"
+            android:text="@string/all_World"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/decease2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/dec2"
+            android:layout_alignTop="@+id/recover2"
+            android:elevation="7dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/Deceased"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="62dp"
+            android:elevation="7dp"
+            android:fontFamily="monospace"
+            android:text="@string/world"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dec2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/view3"
+            android:layout_alignTop="@+id/rec2"
+            android:layout_marginEnd="62dp"
+            android:elevation="7dp"
+            android:fontFamily="@font/roboto"
+            android:text="00000"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/rec2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="115dp"
+            android:elevation="7dp"
+            android:fontFamily="@font/roboto"
+            android:text="00000"
+            android:textColor="@color/green"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

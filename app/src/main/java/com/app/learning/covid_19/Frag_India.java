@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,7 +23,9 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Frag_India extends Fragment {
 
@@ -35,6 +38,7 @@ public class Frag_India extends Fragment {
     private TextView mWest_dcon;private TextView mWest_drec;private TextView mWest_ddec;
     private TextView mInd_con;private TextView mInd_rec;private TextView mInd_dec;
     private TextView mInd_dcon;private TextView mInd_drec;private TextView mInd_ddec;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
 
     View RootView;
@@ -74,6 +78,15 @@ public class Frag_India extends Fragment {
         mInd_ddec=RootView.findViewById(R.id.ddec);
 
 
+        /*Calendar cd=Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("hh:mm:ss a");
+        String dateTime=simpleDateFormat.format(cd.getTime());
+        int hh=Integer.parseInt(dateTime.substring(0,dateTime.indexOf(":")));
+        if(dateTime.substring(dateTime.lastIndexOf(":")+1).equals("PM"))
+
+            Log.d("Covid",""+hh);*/
+
+
         try {
             letsDoSomeNetworking();
         }
@@ -81,6 +94,16 @@ public class Frag_India extends Fragment {
         {
             Toast.makeText(RootView.getContext(),"Request Failed",Toast.LENGTH_SHORT).show();
         }
+
+        /*mSwipeRefreshLayout = RootView.findViewById(R.id.Swipe);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Refresh();
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        });*/
+
         return RootView;
     }
     private void letsDoSomeNetworking() {
@@ -120,7 +143,7 @@ public class Frag_India extends Fragment {
                                 mWest_dec.setText(covidData.Wd);
                                 mWest_dcon.setText(covidData.Wdc);
                                 mWest_drec.setText(covidData.Wdr);
-                                mWest_ddec.setText(covidData.Wdr);
+                                mWest_ddec.setText(covidData.Wdd);
 
                                 mInd_con.setText(covidData.Ic);
                                 mInd_rec.setText(covidData.Ir);
@@ -147,4 +170,61 @@ public class Frag_India extends Fragment {
         }
 
     }
+    public void Refresh()
+    {
+        try {
+            HttpsTrustManager.allowAllSSL();
+            RequestQueue requestQueue = Volley.newRequestQueue(RootView.getContext());
+
+            JsonObjectRequest objectRequest = new JsonObjectRequest(
+                    Request.Method.GET,
+                    URL,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("Covid", "SUCCESS! JSON: " + response.toString());
+                            CovidData_Model covidData = CovidData_Model.fromJSON(response);
+                            if(covidData==null) {
+                            }
+                            else {
+                                int len = covidData.arr.length;
+                                for (int i = 0; i < len; i++) {
+                                    ExampleList.add(covidData.arr[i]);
+                                }
+                                mAdapter.notifyDataSetChanged();
+
+
+                                mWest_con.setText(covidData.Wc);
+                                mWest_rec.setText(covidData.Wr);
+                                mWest_dec.setText(covidData.Wd);
+                                mWest_dcon.setText(covidData.Wdc);
+                                mWest_drec.setText(covidData.Wdr);
+                                mWest_ddec.setText(covidData.Wdd);
+
+                                mInd_con.setText(covidData.Ic);
+                                mInd_rec.setText(covidData.Ir);
+                                mInd_dec.setText(covidData.Id);
+                                mInd_dcon.setText(covidData.Idc);
+                                mInd_drec.setText(covidData.Idr);
+                                mInd_ddec.setText(covidData.Idd);
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("Train_Finder", "Fail " + error.toString());
+                            Toast.makeText(RootView.getContext(), "Network Error", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+            );
+            requestQueue.add(objectRequest);
+        }
+        catch(Exception e)
+        {
+            Toast.makeText(RootView.getContext(),"Request Failed",Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

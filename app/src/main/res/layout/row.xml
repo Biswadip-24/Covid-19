@@ -21,24 +21,26 @@
 
         <TextView
             android:id="@+id/state"
-            android:layout_width="95dp"
+            android:layout_width="100dp"
             android:layout_height="56dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="6dp"
             android:layout_marginStart="15dp"
-            android:fontFamily="@font/raleway_medium"
-            android:text="Maharsthra"
-            android:textAlignment="center"
+            android:autoSizeMaxTextSize="14sp"
+            android:fontFamily="@font/roboto"
+            android:text="Lakshadweep"
+            android:textAlignment="viewStart"
             android:textColor="@color/black"
+            android:textStyle="bold"
+
             app:autoSizeMaxTextSize="14sp"
-            app:autoSizeTextType="uniform"
-            tools:ignore="MissingPrefix" />
+            android:autoSizeTextType="uniform" />
 
         <TextView
             android:id="@+id/decease"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="false"
             android:layout_alignTop="@+id/state"
@@ -47,39 +49,48 @@
             android:text="8376"
             android:textAlignment="viewEnd"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
+
 
         <TextView
             android:id="@+id/recover"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="20dp"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/state"
-            android:layout_marginEnd="100dp"
+            android:layout_marginEnd="95dp"
+            android:layout_marginStart="200dp"
             android:layout_toEndOf="@+id/confirm"
             android:fontFamily="@font/roboto"
-            android:text="104687"
+            android:text="111740"
             android:textAlignment="viewEnd"
             android:textColor="@color/green"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
+
 
         <TextView
             android:id="@+id/confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/state"
+            android:layout_marginEnd="175dp"
             android:layout_marginStart="121dp"
             android:fontFamily="@font/roboto"
             android:text="192990"
             android:textAlignment="viewEnd"
             android:textColor="@color/red"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <TextView
             android:id="@+id/ddecease"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
             android:layout_alignEnd="@+id/decease"
             android:layout_below="@+id/state"
             android:layout_marginTop="-42dp"
@@ -91,8 +102,8 @@
 
         <TextView
             android:id="@+id/drecover"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
             android:layout_alignEnd="@+id/recover"
             android:layout_below="@+id/state"
             android:layout_marginTop="-42dp"
@@ -102,13 +113,13 @@
             android:textColor="@color/green"
             android:textSize="12sp" />
 
+
         <TextView
             android:id="@+id/dconfirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
             android:layout_alignEnd="@+id/confirm"
-            android:layout_below="@+id/state"
-            android:layout_marginTop="-42dp"
+            android:layout_alignTop="@+id/ddecease"
             android:fontFamily="@font/roboto"
             android:text="+6364"
             android:textAlignment="viewEnd"

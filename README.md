@@ -12,3 +12,8 @@ Android app which provides live updates of cases, recoveries, and deaths related
 * https://api.covid19india.org/data.json
 * https://corona.lmao.ninja/v2/countries?yesterday&sort
 * https://corona.lmao.ninja/v2/all?yesterday
+# APP
+
+![Capture1](https://user-images.githubusercontent.com/63808921/87069840-8645d480-c235-11ea-926d-43b747cf1dac.JPG)
+![Capture2](https://user-images.githubusercontent.com/63808921/87069945-ad040b00-c235-11ea-9457-f1ccfd74a814.JPG)
+

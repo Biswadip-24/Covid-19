@@ -1,6 +1,8 @@
 package com.app.learning.covid_19;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -13,13 +15,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.view.animation.AlphaAnimation;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import java.util.concurrent.TimeUnit;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -39,6 +46,7 @@ public class Main2Activity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,14 +69,17 @@ public class Main2Activity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        final LoadingDialog ld=new LoadingDialog(Main2Activity.this);
+        ld.startLoadingDialog();
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void run() {
+                ld.dismissDialog();
             }
-        });*/
+        },5000);
+
 
     }
 
@@ -156,3 +167,4 @@ public class Main2Activity extends AppCompatActivity {
         }
     }
 }
+

@@ -7,17 +7,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
+public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>
+{
     private ArrayList<Example_Item> mExample_items;
+
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView mState;
-        public TextView mConfirmed;
-        public TextView mRecovered;
-        public TextView mDeceased;
-        public TextView mdConfirmed;
-        public TextView mdRecovered;
-        public TextView mdDeceased;
+        public TextView mState;//Represents States of India(for Fragment 1) or Country Name(Fragment 2)
+        public TextView mConfirmed;//Total Confirmed Cases
+        public TextView mRecovered;//Total Recovered Cases
+        public TextView mDeceased;//Total Deaths
+        public TextView mdConfirmed;//Delta Confirmed Cases(New Cases)
+        public TextView mdRecovered;//Delta Recovered Cases(New Recoveries)
+        public TextView mdDeceased;//Delta Deaths Cases(New Deaths)
 
         public ExampleViewHolder(View itemView)
         {

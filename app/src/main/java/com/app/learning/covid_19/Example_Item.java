@@ -1,7 +1,7 @@
 package com.app.learning.covid_19;
 
 public class Example_Item {
-    private String State;
+    private String State;//Represents State or Country
     private String conf;
     private String rec;
     private String dec;

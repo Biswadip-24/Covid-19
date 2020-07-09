@@ -30,12 +30,19 @@ public class CovidData_Model {
             for(i=0;i<covidData.arr.length+2;i++)
             {
                 mState =  jsonObject.getJSONArray("statewise").getJSONObject(i).getString("state");
-                mConfirmed= jsonObject.getJSONArray("statewise").getJSONObject(i).getString("confirmed");
-                mRecovered=jsonObject.getJSONArray("statewise").getJSONObject(i).getString("recovered");
-                mDeceased=jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deaths");
-                mdConfirmed="+"+jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deltaconfirmed");
-                mdRecovered="+"+jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deltarecovered");
-                mdDeceased="+"+jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deltadeaths");
+                mConfirmed= putComma(jsonObject.getJSONArray("statewise").getJSONObject(i).getString("confirmed"));
+                mRecovered=putComma(jsonObject.getJSONArray("statewise").getJSONObject(i).getString("recovered"));
+                mDeceased=putComma(jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deaths"));
+                mdConfirmed=putComma(jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deltaconfirmed"));
+                mdRecovered=putComma(jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deltarecovered"));
+                mdDeceased=putComma(jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deltadeaths"));
+
+                if(jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deltaconfirmed").charAt(0)!='-')
+                    mdConfirmed="+"+mdConfirmed;
+                if(jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deltarecovered").charAt(0)!='-')
+                    mdRecovered="+"+mdRecovered;
+                if(jsonObject.getJSONArray("statewise").getJSONObject(i).getString("deltadeaths").charAt(0)!='-')
+                    mdDeceased="+"+mdDeceased;
 
                 if(mState.equalsIgnoreCase("State Unassigned"))
                     continue;
@@ -71,5 +78,30 @@ public class CovidData_Model {
         }
 
         return covidData;
+    }
+    private static String putComma(String s)
+    {
+        boolean sign=true;
+        if(s.charAt(0)=='-')
+        {
+            sign=false;
+            s=s.substring(1);
+        }
+        int l=s.length();int k=0;
+        String ns="";
+        for(int i=l-1;i>=0;i--) {
+            if (k % 3 == 0 && k!=0) {
+                ns = s.charAt(i) + "," + ns;
+            } else
+                ns = s.charAt(i) + ns;
+
+            k++;
+        }
+
+        if(!sign)
+        {
+            ns="-"+ns;
+        }
+        return ns;
     }
 }

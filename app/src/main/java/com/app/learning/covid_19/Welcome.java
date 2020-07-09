@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 public class Welcome extends AppCompatActivity {
 
-    private static int duration=2000;
+    private static int duration=1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

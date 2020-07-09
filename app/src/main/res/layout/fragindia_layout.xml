@@ -302,16 +302,23 @@
         android:textColor="@color/black"
         android:textSize="18sp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/RecyclerView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="325dp"
-        android:nestedScrollingEnabled="false"
-        android:padding="8dp"
-        android:scrollbars="none" />
+        android:orientation="vertical">
 
-    <android.support.constraint.ConstraintLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:nestedScrollingEnabled="false"
+            android:padding="8dp"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+    <RelativeLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -320,82 +327,61 @@
 
         <TextView
             android:id="@+id/textView19"
-            android:layout_width="0dp"
+            android:layout_width="70dp"
             android:layout_height="20dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginStart="21dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/raleway_medium"
             android:text="@string/location"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            app:autoSizeMaxTextSize="14dp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView20"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.29000002"
-            tools:ignore="MissingPrefix" />
+            android:textStyle="bold" />
 
 
         <TextView
             android:id="@+id/textView20"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="15dp"
             android:layout_marginTop="8dp"
+            android:layout_toStartOf="@+id/textView21"
             android:fontFamily="@font/raleway_medium"
+            android:gravity="left"
             android:text="@string/Confirmed"
             android:textColor="@color/red"
-            android:textStyle="bold"
-            app:autoSizeMaxTextSize="14dp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView21"
-            app:layout_constraintStart_toEndOf="@+id/textView19"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingPrefix" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView21"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignTop="@+id/textView19"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="8dp"
+            android:layout_toStartOf="@+id/textView18"
             android:fontFamily="@font/raleway_medium"
+            android:gravity="left"
             android:text="@string/recovered"
             android:textColor="@color/green"
-            android:textStyle="bold"
-            app:autoSizeMaxTextSize="14dp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView18"
-            app:layout_constraintStart_toEndOf="@+id/textView20"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingPrefix" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:layout_marginBottom="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/raleway_medium"
+            android:gravity="end"
             android:text="@string/Deceased"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            app:autoSizeMaxTextSize="14dp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView21"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingPrefix" />
-    </android.support.constraint.ConstraintLayout>
+            android:textStyle="bold" />
+    </RelativeLayout>
 
     <View
         android:id="@+id/view2"

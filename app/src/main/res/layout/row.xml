@@ -31,7 +31,7 @@
             android:text="Dadra and Nagar Haveli and Daman and Dui"
             android:textAlignment="viewStart"
             android:textColor="@color/black"
-            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeMaxTextSize="14dp"
             app:autoSizeTextType="uniform"
             tools:ignore="MissingPrefix"
             android:textStyle="bold" />

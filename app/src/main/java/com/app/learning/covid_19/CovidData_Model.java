@@ -1,6 +1,9 @@
 package com.app.learning.covid_19;
 
 import android.util.Log;
+import android.widget.TextView;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,7 +50,8 @@ public class CovidData_Model {
                 if(mState.equalsIgnoreCase("State Unassigned"))
                     continue;
 
-                if(mState.equalsIgnoreCase("West Bengal"))
+                Log.d("Location","STATE : "+Frag_India.state);
+                if(mState.equalsIgnoreCase(Frag_India.state))
                 {
                     covidData.Wc=mConfirmed;
                     covidData.Wr=mRecovered;
@@ -104,4 +108,6 @@ public class CovidData_Model {
         }
         return ns;
     }
+
+
 }

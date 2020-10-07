@@ -94,16 +94,6 @@ public class Frag_India extends Fragment {
         mState = RootView.findViewById(R.id.textView5);
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(RootView.getContext());
 
-        //getLocation();
-
-
-        /*try {
-            letsDoSomeNetworking();
-        } catch (Exception e) {
-            Toast.makeText(RootView.getContext(), "Request Failed", Toast.LENGTH_SHORT).show();
-        }*/
-
-
         return RootView;
     }
 
@@ -268,15 +258,9 @@ public class Frag_India extends Fragment {
         if (ActivityCompat.checkSelfPermission(RootView.getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
         {
             Log.d(TAG,"We have reached here askLocationPermission()");
-            //ActivityCompat.requestPermissions((Activity) RootView.getContext(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
             requestPermissions(new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_REQUEST_CODE);
-            /*if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) RootView.getContext(), Manifest.permission.ACCESS_FINE_LOCATION)) {
-                Log.d(TAG, "askLocationPermission: you should show an alert dialog...");
-                ActivityCompat.requestPermissions((Activity) RootView.getContext(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
-            } else {
-                ActivityCompat.requestPermissions((Activity) RootView.getContext(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
-            }*/
+
         }
     }
 

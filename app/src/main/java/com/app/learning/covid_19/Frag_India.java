@@ -171,39 +171,6 @@ public class Frag_India extends Fragment {
 
     }
 
-    private void getLocation() {
-
-        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(RootView.getContext());
-        if (ActivityCompat.checkSelfPermission(RootView.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            mFusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-                @Override
-                public void onComplete(@NonNull Task<Location> task) {
-                    Location location = task.getResult();
-                    if (location != null) {
-                        try {
-                            Geocoder geocoder = new Geocoder(RootView.getContext(), Locale.getDefault());
-                            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                            Log.d("Location", "Hello");
-                            String s = addresses.toString();
-                            int u = s.indexOf("admin");
-                            state = s.substring(s.indexOf('=', u) + 1, s.indexOf(',', u));
-                            Log.d("Location", addresses.toString());
-                            Log.d("Location", state);
-                            mState.setText(state);
-                            letsDoSomeNetworking();
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Toast.makeText(RootView.getContext(), "Request Failed", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-            });
-        } else {
-            ActivityCompat.requestPermissions((Activity) RootView.getContext(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 44);
-        }
-    }
-
     private void getLastLocation() {
         if (ActivityCompat.checkSelfPermission(RootView.getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(RootView.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;

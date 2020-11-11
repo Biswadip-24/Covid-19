@@ -112,7 +112,7 @@
 
         <TextView
             android:id="@+id/dconfirm"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_alignEnd="@+id/confirm"
             android:layout_alignTop="@+id/ddecease"

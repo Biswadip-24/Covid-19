@@ -10,8 +10,8 @@ Android app which provides live updates of cases, recoveries, and deaths related
 * Android Studio(Using JAVA)
 # Api Used
 * https://data.covid19india.org/v4/min/data.min.json
-* https://corona.lmao.ninja/v3/covid-19/countries?yesterday&sort
-* https://corona.lmao.ninja/v3/covid-19/all?yesterday
+* https://disease.sh/v3/covid-19/countries?yesterday&sort
+* https://disease.sh/v3/covid-19/all?yesterday
 # APP
 
 ![Capture1](https://user-images.githubusercontent.com/63808921/87069840-8645d480-c235-11ea-926d-43b747cf1dac.JPG)

@@ -47,8 +47,8 @@ public class Frag_World extends Fragment {
     private TextView mWrld_drec;
     private TextView mWrld_ddec;
     Switch mSwitch;
-    private String URL = "https://corona.lmao.ninja/v3/covid-19/countries?yesterday=false&sort=cases";
-    String Covid_URL_all="https://corona.lmao.ninja/v3/covid-19/all?yesterday=false";
+    private String URL = "https://disease.sh/v3/covid-19/countries?yesterday=false&sort=cases";
+    String Covid_URL_all="https://disease.sh/v3/covid-19/all?yesterday=false";
 
     @Nullable
     @Override
@@ -79,12 +79,12 @@ public class Frag_World extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true) {
-                     URL = "https://corona.lmao.ninja/v3/covid-19/countries?yesterday=true&sort=cases";
-                     Covid_URL_all="https://corona.lmao.ninja/v3/covid-19/all?yesterday=true";
+                     URL = "https://disease.sh/v3/covid-19/countries?yesterday=true&sort=cases";
+                     Covid_URL_all="https://disease.sh/v3/covid-19/all?yesterday=true";
 
                 } else {
-                    URL = "https://corona.lmao.ninja/v3/covid-19/countries?yesterday=false&sort=cases";
-                    Covid_URL_all="https://corona.lmao.ninja/v3/covid-19/all?yesterday=false";
+                    URL = "https://disease.sh/v3/covid-19/countries?yesterday=false&sort=cases";
+                    Covid_URL_all="https://disease.sh/v3/covid-19/all?yesterday=false";
                 }
                 try
 

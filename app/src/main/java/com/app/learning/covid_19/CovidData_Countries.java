@@ -6,16 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class CovidData_Countries {
-    private static String mCountry;
-    private static String mConfirmed;
-    private static String mRecovered;
-    private static String mDeceased;
-    private static String mdConfirmed;
-    private static String mdRecovered;
-    private static String mdDeceased;
+public class CovidData_Countries
+{
     public Example_Item arr[];
-
 
     public static CovidData_Countries fromJSON(JSONArray jsonArray)
     {
@@ -26,17 +19,17 @@ public class CovidData_Countries {
             int i,k=0;
             for(i=0;i<covidData.arr.length;i++)
             {
-                mCountry =  jsonArray.getJSONObject(i).getString("country");
-                mConfirmed= putComma(Long.toString(jsonArray.getJSONObject(i).getLong("cases")));
-                mRecovered=putComma(Long.toString(jsonArray.getJSONObject(i).getLong("recovered")));
-                mDeceased=putComma(Long.toString(jsonArray.getJSONObject(i).getLong("deaths")));
-                mdConfirmed="+"+putComma(Long.toString(jsonArray.getJSONObject(i).getLong("todayCases")));
-                mdRecovered="+"+putComma(Long.toString(jsonArray.getJSONObject(i).getLong("todayRecovered")));
-                mdDeceased="+"+putComma(Long.toString(jsonArray.getJSONObject(i).getLong("todayDeaths")));
+                String country = jsonArray.getJSONObject(i).getString("country");
+                String confirmed = putComma(Long.toString(jsonArray.getJSONObject(i).getLong("cases")));
+                String recovered = putComma(Long.toString(jsonArray.getJSONObject(i).getLong("recovered")));
+                String deceased = putComma(Long.toString(jsonArray.getJSONObject(i).getLong("deaths")));
+                String mdConfirmed = "+" + putComma(Long.toString(jsonArray.getJSONObject(i).getLong("todayCases")));
+                String mdRecovered = "+" + putComma(Long.toString(jsonArray.getJSONObject(i).getLong("todayRecovered")));
+                String mdDeceased = "+" + putComma(Long.toString(jsonArray.getJSONObject(i).getLong("todayDeaths")));
 
 
-                covidData.arr[k++] = new Example_Item(mCountry,mConfirmed,mRecovered,mDeceased,mdConfirmed,mdRecovered,mdDeceased);
-                Log.d("Covid","\n"+mCountry+" "+mConfirmed+" "+mRecovered+" "+mDeceased);
+                covidData.arr[k++] = new Example_Item(country, confirmed, recovered, deceased, mdConfirmed, mdRecovered, mdDeceased);
+                Log.d("Covid","\n"+ country +" "+ confirmed +" "+ recovered +" "+ deceased);
             }
         }
         catch (JSONException e)

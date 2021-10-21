@@ -17,6 +17,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -30,6 +31,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Frag_World extends Fragment {
     private View RootView;
@@ -44,8 +47,8 @@ public class Frag_World extends Fragment {
     private TextView mWrld_drec;
     private TextView mWrld_ddec;
     Switch mSwitch;
-    private String URL = "https://corona.lmao.ninja/v2/countries?yesterday=false&sort=cases";
-    String Covid_URL_all="https://corona.lmao.ninja/v2/all?yesterday=false";
+    private String URL = "https://corona.lmao.ninja/v3/covid-19/countries?yesterday=false&sort=cases";
+    String Covid_URL_all="https://corona.lmao.ninja/v3/covid-19/all?yesterday=false";
 
     @Nullable
     @Override
@@ -76,12 +79,12 @@ public class Frag_World extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true) {
-                     URL = "https://corona.lmao.ninja/v2/countries?yesterday=true&sort=cases";
-                    Covid_URL_all="https://corona.lmao.ninja/v2/all?yesterday=true";
+                     URL = "https://corona.lmao.ninja/v3/covid-19/countries?yesterday=true&sort=cases";
+                     Covid_URL_all="https://corona.lmao.ninja/v3/covid-19/all?yesterday=true";
 
                 } else {
-                    URL = "https://corona.lmao.ninja/v2/countries?yesterday=false&sort=cases";
-                    Covid_URL_all="https://corona.lmao.ninja/v2/all?yesterday=false";
+                    URL = "https://corona.lmao.ninja/v3/covid-19/countries?yesterday=false&sort=cases";
+                    Covid_URL_all="https://corona.lmao.ninja/v3/covid-19/all?yesterday=false";
                 }
                 try
 
@@ -114,8 +117,6 @@ public class Frag_World extends Fragment {
 
     private void letsDoSomeNetworking() throws JSONException {
 
-
-
         HttpsTrustManager.allowAllSSL();
         RequestQueue requestQueue = Volley.newRequestQueue(RootView.getContext());
 
@@ -129,7 +130,6 @@ public class Frag_World extends Fragment {
                         Log.d("Covid", "SUCCESS! JSON: " + response.toString());
                         CovidData_Countries covidData = CovidData_Countries.fromJSON(response);
                         if(covidData==null) {
-                            //Toast.makeText(Train_list_activity.this,"No Currently Available Trains",Toast.LENGTH_SHORT).show();
                         }
                         else {
                             int len = covidData.arr.length;
@@ -155,9 +155,19 @@ public class Frag_World extends Fragment {
                         Toast.makeText(RootView.getContext(), "Request Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
-        );
+        ){
+            //This is for Headers If You Needed
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("x-rapidapi-host", "covid-19-coronavirus-statistics2.p.rapidapi.com");
+                params.put("x-rapidapi-key", "b73f6db0aemshbd1a3b8be234ceep171c28jsn1e0771bc49c9");
+                return params;
+            }
+        };
         requestQueue.add(arrayRequest);
     }
+
     public void letsDoSomeMoreNetworking()throws Exception
     {
 
@@ -175,7 +185,7 @@ public class Frag_World extends Fragment {
                         Log.d("Covid", "SUCCESS! JSON: " + response.toString());
                         CovidData_World covidData = CovidData_World.fromJSON(response);
                         if(covidData==null) {
-                            //Toast.makeText(Train_list_activity.this,"No Currently Available Trains",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RootView.getContext(),"No data",Toast.LENGTH_SHORT).show();
                         }
                         else {
                             mWrld_con.setText(covidData.getmConfirmed());

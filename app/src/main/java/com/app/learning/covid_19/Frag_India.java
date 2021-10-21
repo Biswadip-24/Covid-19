@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -39,8 +40,10 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class Frag_India extends Fragment {
 
@@ -48,7 +51,9 @@ public class Frag_India extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private final String URL = "https://api.covid19india.org/data.json";
+
+    private final String URL_India = "https://data.covid19india.org/v4/min/data.min.json";
+
     private TextView mWest_con;
     private TextView mWest_rec;
     private TextView mWest_dec;
@@ -108,52 +113,46 @@ public class Frag_India extends Fragment {
         }
     }
 
-
     private void letsDoSomeNetworking() {
-
-
         try {
             HttpsTrustManager.allowAllSSL();
             RequestQueue requestQueue = Volley.newRequestQueue(RootView.getContext());
 
             JsonObjectRequest objectRequest = new JsonObjectRequest(
                     Request.Method.GET,
-                    URL,
+                    URL_India,
                     null,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             Log.d("Covid", "SUCCESS! JSON: " + response.toString());
-                            covidData = CovidData_Model.fromJSON(response);
-                            if (covidData != null) {
+                            IndiaStates indiaStates = IndiaStates.fromJSON(response);
+                            ExampleList = indiaStates.getArr();
+                            Log.d("Covid",ExampleList.size()+"");
 
-                                int len = covidData.arr.length;
-                                for (int i = 0; i < len; i++) {
-                                    ExampleList.add(covidData.arr[i]);
-                                }
-                                mRecyclerView = RootView.findViewById(R.id.RecyclerView);
-                                mRecyclerView.setHasFixedSize(true);
-                                mLayoutManager = new LinearLayoutManager(getActivity());
-                                mAdapter = new ExampleAdapter(ExampleList);
-                                mRecyclerView.setLayoutManager(mLayoutManager);
-                                mRecyclerView.setAdapter(mAdapter);
-                                mRecyclerView.setFocusable(false);
+                            mRecyclerView = RootView.findViewById(R.id.RecyclerView);
+                            mRecyclerView.setHasFixedSize(true);
+                            mLayoutManager = new LinearLayoutManager(getActivity());
+                            mAdapter = new ExampleAdapter(ExampleList);
+                            mRecyclerView.setLayoutManager(mLayoutManager);
+                            mRecyclerView.setAdapter(mAdapter);
+                            mRecyclerView.setFocusable(false);
 
+                            IndiaTotal indiaTotal = IndiaTotal.fromJSON(response);
+                            mInd_con.setText(indiaTotal.getConfirmed());
+                            mInd_rec.setText(indiaTotal.getRecovered());
+                            mInd_dec.setText(indiaTotal.getDeceased());
+                            mInd_dcon.setText(indiaTotal.getMdConfirmed());
+                            mInd_drec.setText(indiaTotal.getMdRecovered());
+                            mInd_ddec.setText(indiaTotal.getMdDeceased());
 
-                                mWest_con.setText(covidData.Wc);
-                                mWest_rec.setText(covidData.Wr);
-                                mWest_dec.setText(covidData.Wd);
-                                mWest_dcon.setText(covidData.Wdc);
-                                mWest_drec.setText(covidData.Wdr);
-                                mWest_ddec.setText(covidData.Wdd);
+                            mWest_con.setText(indiaStates.Wc);
+                            mWest_rec.setText(indiaStates.Wr);
+                            mWest_dec.setText(indiaStates.Wd);
+                            mWest_dcon.setText(indiaStates.Wdc);
+                            mWest_drec.setText(indiaStates.Wdr);
+                            mWest_ddec.setText(indiaStates.Wdd);
 
-                                mInd_con.setText(covidData.Ic);
-                                mInd_rec.setText(covidData.Ir);
-                                mInd_dec.setText(covidData.Id);
-                                mInd_dcon.setText(covidData.Idc);
-                                mInd_drec.setText(covidData.Idr);
-                                mInd_ddec.setText(covidData.Idd);
-                            }
                         }
                     },
                     new Response.ErrorListener() {

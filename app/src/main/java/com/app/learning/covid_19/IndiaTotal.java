@@ -39,21 +39,21 @@ public class IndiaTotal {
             }
 
             try{
-                dConfirmed=putComma("+"+jsonObject.getJSONObject("TT").getJSONObject("delta").getString("confirmed"));
+                dConfirmed="+"+putComma(jsonObject.getJSONObject("TT").getJSONObject("delta").getString("confirmed"));
             }
             catch(Exception e){
                 dConfirmed = "+0";
             }
 
             try{
-                dRecovered=putComma("+"+jsonObject.getJSONObject("TT").getJSONObject("delta").getString("recovered"));
+                dRecovered="+"+putComma(jsonObject.getJSONObject("TT").getJSONObject("delta").getString("recovered"));
             }
             catch(Exception e){
                 dRecovered = "+0";
             }
 
             try{
-                dDeceased=putComma("+"+jsonObject.getJSONObject("TT").getJSONObject("delta").getString("deceased"));
+                dDeceased="+"+putComma(jsonObject.getJSONObject("TT").getJSONObject("delta").getString("deceased"));
             }
             catch(Exception e){
                 dDeceased = "+0";
@@ -96,9 +96,7 @@ public class IndiaTotal {
 
     private static String putComma(String s)
     {
-        char sgn = s.charAt(0);
-        s=s.substring(1);
-        Log.d("comma","String s : "+s);
+
         int l=s.length();int k=0;
         String ns="";
         for(int i=l-1;i>=0;i--) {
@@ -110,6 +108,6 @@ public class IndiaTotal {
             k++;
         }
 
-        return sgn + ns;
+        return ns;
     }
 }

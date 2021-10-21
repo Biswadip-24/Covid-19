@@ -155,23 +155,12 @@ public class Frag_World extends Fragment {
                         Toast.makeText(RootView.getContext(), "Request Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
-        ){
-            //This is for Headers If You Needed
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("x-rapidapi-host", "covid-19-coronavirus-statistics2.p.rapidapi.com");
-                params.put("x-rapidapi-key", "b73f6db0aemshbd1a3b8be234ceep171c28jsn1e0771bc49c9");
-                return params;
-            }
-        };
+        );
         requestQueue.add(arrayRequest);
     }
 
     public void letsDoSomeMoreNetworking()throws Exception
     {
-
-
         HttpsTrustManager.allowAllSSL();
         RequestQueue requestQueue= Volley.newRequestQueue(RootView.getContext());
 

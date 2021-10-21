@@ -105,21 +105,21 @@ public class IndiaStates
             }
 
             try{
-                dConfirmed=putComma("+"+jsonObject.getJSONObject(mIndia.codes[i]).getJSONObject("delta").getString("confirmed"));
+                dConfirmed="+"+putComma(jsonObject.getJSONObject(mIndia.codes[i]).getJSONObject("delta").getString("confirmed"));
             }
             catch(Exception e){
                 dConfirmed = "+0";
             }
 
             try{
-                dRecovered=putComma("+"+jsonObject.getJSONObject(mIndia.codes[i]).getJSONObject("delta").getString("recovered"));
+                dRecovered="+"+putComma(jsonObject.getJSONObject(mIndia.codes[i]).getJSONObject("delta").getString("recovered"));
             }
             catch(Exception e){
                 dRecovered = "+0";
             }
 
             try{
-                dDeceased=putComma("+"+jsonObject.getJSONObject(mIndia.codes[i]).getJSONObject("delta").getString("deceased"));
+                dDeceased="+"+putComma(jsonObject.getJSONObject(mIndia.codes[i]).getJSONObject("delta").getString("deceased"));
             }
             catch(Exception e){
                 dDeceased = "+0";
@@ -153,9 +153,7 @@ public class IndiaStates
 
     private static String putComma(String s)
     {
-        char sgn = s.charAt(0);
-        s=s.substring(1);
-        Log.d("comma","String s : "+s);
+
         int l=s.length();int k=0;
         String ns="";
         for(int i=l-1;i>=0;i--) {
@@ -167,7 +165,7 @@ public class IndiaStates
             k++;
         }
 
-        return sgn + ns;
+        return ns;
     }
 
     public ArrayList<Example_Item> getArr() {
